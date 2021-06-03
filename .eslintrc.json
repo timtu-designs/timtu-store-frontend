@@ -40,10 +40,7 @@
     "react/jsx-props-no-spreading": [1, { "custom": "ignore" }],
     "react/display-name": 1,
     "react/prop-types": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
     "jsx-a11y/anchor-is-valid": 0,
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
     "import/extensions": [
       "error",
       "ignorePackages",

@@ -7,8 +7,9 @@
     "develop": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . --ext js --ext ts --ext tsx",
+    "lint:fix": "eslint . --ext js --ext ts --ext tsx --fix",
+    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "next": "^10.2.3",

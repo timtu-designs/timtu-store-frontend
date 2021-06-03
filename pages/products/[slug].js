@@ -1,7 +1,8 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { getProducts, getProduct } from "../../utils/api";
-import { getStrapiMedia } from "../../utils/medias";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import { getProducts, getProduct } from '../../utils/api';
+import getStrapiMedia from '../../utils/medias';
 
 const ProductPage = ({ product }) => {
   const router = useRouter();
@@ -16,9 +17,9 @@ const ProductPage = ({ product }) => {
       </Head>
       <div className="rounded-t-lg pt-2 pb-2">
         <img
-          src={getStrapiMedia(product.image.formats.thumbnail.url)}
-          className="m-auto"
           alt={product.title}
+          className="m-auto"
+          src={getStrapiMedia(product.image.formats.thumbnail.url)}
         />
       </div>
       <div className="w-full p-5 flex flex-col justify-between">
@@ -29,23 +30,24 @@ const ProductPage = ({ product }) => {
           <div className="mt-1 text-gray-600">{product.description}</div>
         </div>
 
-        {product.status === "published" ? (
+        {product.status === 'published' ? (
           <button
             className="snipcart-add-item mt-4 bg-white border border-gray-200 d hover:shadow-lg text-gray-700 font-semibold py-2 px-4 rounded shadow"
-            data-item-id={product.id}
-            data-item-price={product.price}
-            data-item-url={router.asPath}
             data-item-description={product.description}
+            data-item-id={product.id}
             data-item-image={getStrapiMedia(
               product.image.formats.thumbnail.url
             )}
             data-item-name={product.title}
+            data-item-price={product.price}
+            data-item-url={router.asPath}
+            type="button"
             v-bind="customFields"
           >
             Add to cart
           </button>
         ) : (
-          <div className="text-center mr-10 mb-1" v-else>
+          <div v-else className="text-center mr-10 mb-1">
             <div
               className="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
               role="alert"
@@ -74,11 +76,9 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const products = await getProducts();
   return {
-    paths: products.map((_product) => {
-      return {
-        params: { slug: _product.slug },
-      };
-    }),
+    paths: products.map((_product) => ({
+      params: { slug: _product.slug },
+    })),
     fallback: true,
   };
 }

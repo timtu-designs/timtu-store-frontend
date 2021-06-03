@@ -1,6 +1,6 @@
 export function getStrapiURL(path) {
   return `${
-    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'
   }${path}`;
 }
 
@@ -13,7 +13,7 @@ export async function fetchAPI(path) {
 }
 
 export async function getCategories() {
-  const categories = await fetchAPI("/categories");
+  const categories = await fetchAPI('/categories');
   return categories;
 }
 
@@ -23,7 +23,7 @@ export async function getCategory(slug) {
 }
 
 export async function getProducts() {
-  const products = await fetchAPI("/products");
+  const products = await fetchAPI('/products');
   return products;
 }
 

@@ -1,30 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Timtu store frontend
 
-## Getting Started
+<!--- TODO: Hacer una buena descripción del repositorio --->
 
-First, run the development server:
+## Configuración básica
+
+Primero instala las dependencias con:
+
+```bash
+npm install
+```
+
+Configura las variables de entorno (Leer sección _Variables de entorno_)
+
+Ejecuta el servidor de desarrollo local:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver los resultados.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Variables de entorno
 
-## Learn More
+Crea un archivo `.env.local` en el directorio raíz del proyecto utilizando `.env.local.example` como guía. Actualmente la única variable de entorno que utilizamos es una URL apuntando a la API del backend. `NEXT_PUBLIC_STRAPI_API_URL`
 
-To learn more about Next.js, take a look at the following resources:
+## Contribuir
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Crea una rama nueva partiendo de `develop`, llamada `feature/nombre-de-funcionalidad`. Por ejemplo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+git checkout -b feature/optimizar-imagenes develop
+```
 
-## Deploy on Vercel
+2. Trabaja en la funcionalidad normalmente y has **commit** a los cambios.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git commit -m 'Optimizar el tiempo de carga de las imagenes'
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Empuja los cambios al repositorio remoto. Ejemplo:
+
+```bash
+git push -u origin feature/optimizar-imagenes
+```
+
+4. Abre un **Pull Request (PR)** con tus cambios hacia `develop`. Para cambios de UI incluye una captura de pantalla o GIF en la descripción del PR.
